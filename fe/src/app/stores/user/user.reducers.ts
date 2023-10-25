@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { User } from '../../entities/user.entity';
-import { UserActionsEnum, UserPropsAction } from './user.actions';
+import { UserActionsEnum, UserCreate, UserPropsAction } from './user.actions';
 
 export interface UserStoreState {
     users: User[];
@@ -16,6 +16,13 @@ export function userListReducer(state = initialUserState, action: Action) {
             const newState = {
                 ...state,
                 users: (<UserPropsAction>action).users ?? []
+            }
+            return newState;
+        }
+        case UserActionsEnum.Create: {
+            const newState = {
+                ...state,
+                users: [ ...state.users, (<UserCreate>action).user ]
             }
             return newState;
         }

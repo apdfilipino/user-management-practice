@@ -23,10 +23,11 @@ export class UserPropsAction implements Action {
     }
 }
 
-export class UserCreate extends UserPropsAction {
-    override type = UserActionsEnum.Create;
-    constructor(props: UserProps) {
-        super(props);
+export class UserCreate implements Action {
+    type = UserActionsEnum.Create;
+    user: User;
+    constructor(props: { user: User }) {
+        this.user = props.user;
     }
 }
 
