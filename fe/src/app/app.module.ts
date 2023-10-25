@@ -15,12 +15,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
+import { CreateUserDialogComponent } from './create-user-dialog/create-user-dialog.component';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    CreateUserDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +39,9 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatDividerModule,
     MatCardModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatDialogModule,
     StoreModule.forRoot({ usersStore: userListReducer }, {})
   ],
   providers: [],

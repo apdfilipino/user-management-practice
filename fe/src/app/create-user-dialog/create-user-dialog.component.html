@@ -1,0 +1,13 @@
+<mat-form-field class="withMargin">
+    <mat-label>First Name</mat-label>
+    <input matInput type="text" [(ngModel)]="user.firstName">
+</mat-form-field>
+
+<mat-form-field class="withMargin">
+    <mat-label>Last Name</mat-label>
+    <input matInput type="text" [(ngModel)]="user.lastName">
+</mat-form-field>
+
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="user" cdkFocusInitial>Ok</button>
+</div>

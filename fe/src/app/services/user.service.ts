@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../entities/user.entity';
 import { UserStoreState } from '../stores/user/user.reducers';
 import { Store } from '@ngrx/store';
-import { UserList } from '../stores/user/user.actions';
+import { UserCreate, UserList } from '../stores/user/user.actions';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -37,7 +37,9 @@ export class UserService {
   }
 
   public createUser(data: User) {
-    return this.httpClient.post<User>(this.baseUrl + "/user", { ...data });
+    this.httpClient.post<User>(this.baseUrl + "/user", { ...data }).subscribe(u => {
+      this.store.dispatch(new UserCreate({ user: u }));
+    });
   }
 
 }
